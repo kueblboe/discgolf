@@ -1,0 +1,38 @@
+<template name="course">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Course</h1>
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <button id="play" class="button button-clear">Play</button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="center">
+        <h1>{{name}}</h1>
+        <div>Holes {{holesCount}}, Par {{parSum}}</div>
+      </div>
+
+      {{#ionList}}
+
+        {{#each key_value holes}}
+
+          {{#ionItem iconLeft=true}}
+            {{> ionIcon icon="flag" class="positive"}}
+
+            <h2>Hole {{holeNum}}</h2>
+            <p>
+              par {{value.par}}, {{value.ft}} ft
+            </p>
+
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
